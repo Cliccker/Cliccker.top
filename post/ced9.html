@@ -1,0 +1,1544 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="读论文—实例与本体概念联合嵌入知识库的通用表示学习, 分享，成长">
+    <meta name="description" content="一个记录成长的博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>读论文—实例与本体概念联合嵌入知识库的通用表示学习 | 不言物语</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="不言物语" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">不言物语</span>
+                </a>
+            </div>
+            
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">不言物语</div>
+        <div class="logo-desc">
+            
+            一个记录成长的博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">读论文—实例与本体概念联合嵌入知识库的通用表示学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/KB/">
+                                <span class="chip bg-color">KB</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B5%8C%E5%85%A5%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">嵌入学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><em><strong>标题：</strong>Universal Representation Learning of Knowledge Bases by Jointly Embedding Instances and Ontological Concepts</em></p>
+<p><em><strong>来源：</strong>KDD ‘19: Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining</em></p>
+<p><em><strong>地址：</strong></em><a href="https://link.zhihu.com/?target=https%3A//dl.acm.org/doi/10.1145/3292500.3330838">https://dl.acm.org/doi/10.1145/3292500.3330838</a></p>
+<p><strong><em>代码地址：</em></strong><a href="https://link.zhihu.com/?target=https%3A//github.com/JunhengH/joie-kdd19">https://github.com/JunhengH/joie-kdd19</a></p>
+<p>许多大型的<strong>知识库</strong>都<strong>同时</strong>表示知识图谱的两个视图，包括用来表示摘要或者常识的本体视图，和用来表示从本体中提取出来的特殊实体的实例视图。但是没有将两个视图<strong>单独</strong>表示出来的<strong>知识嵌入模型</strong>。该研究提出了two-view KG嵌入模型JOIE，目的是<strong>为了实现更好的知识嵌入</strong>以及<strong>支持依赖于多视图知识的新应用程序</strong>。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><img src="https://pic4.zhimg.com/v2-43423ec62e25059de7eadad7e7b2137f_b.jpg" alt=""></p>
+<p>图1 双视角知识库示例。本体视图中橙色虚线表示层次元关系，黑色为规则元关系。</p>
+<p>现存的知识图谱都<strong>可以</strong>分成如图1所示的两个视图</p>
+<ol>
+<li>实例视图的知识图谱，例如(“Barack Obama”,“isPoliticianOf ”, “United States”)</li>
+<li>本体视图的知识图谱，例如(“polication”, “is leader of ”, “city”)</li>
+</ol>
+<p>同时，实例与本体视图之间由<strong>视图间(cross-view)</strong>关系来连接。</p>
+<p>近年来对<strong>知识图谱的嵌入模型</strong>也有很多研究，但现有的模型都只针对其中<strong>一种视图</strong>进行设计。如果将双视图引入到<strong>知识表示模型</strong>中，可以有如下两点优势：</p>
+<ol>
+<li>实例嵌入为其相应的本体上的概念提供了详细而丰富的信息。例如，通过观察多个音乐家<strong>个体（instance）</strong>的嵌入，很大程度上可以确定其对应的<strong>概念（concept）</strong>“音乐家”的嵌入。</li>
+<li>概念嵌入对其实例进行了<strong>高层次的总结</strong>，当一个实例很少被观察到时，这将会变得非常有帮助的，例如对于某个在<strong>实例视图</strong>中几乎没有关系的音乐家，我们仍然可以知道他/她在实例嵌入空间中的粗略位置，因为他/她不会离其他音乐家太远。</li>
+</ol>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p><strong>Challenge：</strong></p>
+<ol>
+<li>实例与概念、关系与元关系之间虽然不相交，但是存在语义上的联系，且两者做映射非常复杂。</li>
+<li>现有的视图间关系往往不足以覆盖大量的实体，导致没有足够的信息区对齐两个视图，同时也限制了视图间发现新关系的能力</li>
+<li>两种视图的规模和拓扑结构也有很大不同，其中本体视图通常是稀疏的，提供较少类型的关系，并形成分层的子结构，而实例视图则更大并且具有更多的关系类型。</li>
+</ol>
+<p><strong>Solution：</strong></p>
+<p><img src="https://pic3.zhimg.com/v2-d5f11fd46aaeb101821c07aa1ebcdd42_b.jpg" alt=""></p>
+<p>图2 JOIE模型结构</p>
+<h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a><strong>建模</strong></h2><p><img src="https://pic4.zhimg.com/v2-a381eee47a35bcedffe4060a2090526b_b.jpg" alt=""></p>
+<p>图3 跨视图关联模型从跨视图链接（绿色“类别”框中的虚线箭头）学习嵌入。默认的视图内模型从每个视图中的三元组（灰色框）中学习嵌入。层次结构感知的视图内模型对在本体（或“层次结构”梯形）中形成层次结构的元关系事实进行建模</p>
+<h3 id="跨视图关联模型"><a href="#跨视图关联模型" class="headerlink" title="跨视图关联模型"></a>跨视图关联模型</h3><ul>
+<li>Cross-view Grouping (CG)——跨视图分组技术</li>
+</ul>
+<p><img src="https://pic1.zhimg.com/v2-cc9ef630dba6902e9175290a8983700c_b.jpg" alt=""></p>
+<p>图4 跨视图分组技术</p>
+<p>如图4所示，跨视图分组技术会假设本体视图的知识图谱和实例视图的知识图谱能够<strong>嵌入到同一空间中</strong>，并且“迫使”属于概念c的实例e在表示空间上<strong>靠近</strong>概念c。以此定义学习的loss为：</p>
+<p><img src="https://www.zhihu.com/equation?tex=J_%7B%5Cmathrm%7BCross%7D%7D%5E%7B%5Cmathrm%7BCG%7D%7D%3D%5Cfrac%7B1%7D%7B%7C%5Cmathcal%7BS%7D%7C%7D+%5Csum_%7B%28e%2C+c%29+%5Cin+%5Cmathcal%7BS%7D%7D%5Cleft%5B%5C%7C%5Cmathrm%7Bc%7D-%5Cmathrm%7Be%7D%5C%7C_%7B2%7D-%5Cgamma%5E%7B%5Cmathrm%7BCG%7D%7D%5Cright%5D_%7B%2B%7D" alt="[公式]"> （1）</p>
+<p>式中S表示具有is_A关系的实例与概念关系对； <img src="https://www.zhihu.com/equation?tex=%5Cgamma%5E%7B%5Cmathrm%7BCG%7D%7D" alt="[公式]"> 表示训练的超参数，也是图4中圆的半径；<img src="https://www.zhihu.com/equation?tex=%5Bx%5D_%7B%2B%7D+%3D%3E+max%5B+x%2C0%5D" alt="[公式]"> 。式（1）表示如果e出离了c圆之外，就会产生惩罚。</p>
+<ul>
+<li>Cross-view Transformation (CT)——跨视图转换技术</li>
+</ul>
+<p><img src="https://pic2.zhimg.com/v2-db4b6e544b5da0516ae4c9d15c9c1299_b.jpg" alt=""></p>
+<p>图5 跨视图转换技术</p>
+<p>和CG不同的是，CT允许两个视图<strong>彼此完全不相同</strong>，通过转换之后将两个视图<strong>对齐</strong>在一起。也就是说，转换之后，一个实例的嵌入将会被放置在本体视图中，且<strong>靠近</strong>该实例所属的概念嵌入。即</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cmathbf%7Bc%7D+%5Cleftarrow+f_%7B%5Cmathrm%7BCT%7D%7D%28%5Cmathbf%7Be%7D%29%2C+%5Cforall%28e%2C+c%29+%5Cin+%5Cmathcal%7BS%7D" alt="[公式]"> （2）</p>
+<p>这里的 <img src="https://www.zhihu.com/equation?tex=f_%7B%5Cmathrm%7BCT%7D%7D%28%5Cmathbf%7Be%7D%29%3D%5Csigma%5Cleft%28%5Cmathbf%7BW%7D_%7B%5Cmathrm%7Bct%7D%7D+%5Ccdot+%5Cmathbf%7Be%7D%2B%5Cmathbf%7Bb%7D_%7B%5Cmathrm%7Bct%7D%7D%5Cright%29" alt="[公式]"> 是一个非线性的<strong>仿射变换</strong><a href="#ref_1">[1]</a>，由此定义loss</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Barray%7D%7Bc%7D+J_%7B%5Cmathrm%7BCross%7D%7D%5E%7B%5Cmathrm%7BCT%7D%7D%3D%5Cfrac%7B1%7D%7B%7CS%7C%7D+%5Csum_%7B%28e%2C+c%29+%5Cin+S%5Cwedge%5Cleft%28e%2C+c%5E%7B%5Cprime%7D%5Cright%29+%5Cnotin+S%7D%5Cleft%5B%5Cgamma%5E%7B%5Cmathrm%7BCT%7D%7D%2B%5Cleft%5C%7C%5Cmathbf%7Bc%7D-f_%7B%5Cmathrm%7BCT%7D%7D%28%5Cmathbf%7Be%7D%29%5Cright%5C%7C_%7B2%7D-%5Cleft%5C%7C%5Cmathbf%7Bc%7D%5E%7B%5Cprime%7D-f_%7B%5Cmathrm%7BCT%7D%7D%28%5Cmathbf%7Be%7D%29%5Cright%5C%7C_%7B2%7D%5Cright%5D_%7B%2B%7D+%5C%5C++%5Cend%7Barray%7D" alt="[公式]"></p>
+<p>(3)</p>
+<p><strong>视图内嵌入模型</strong></p>
+<p>视图内模型的目的是在两个嵌入空间中分别保留KB的每个视图中的原始结构信息。由于实例视图中的关系和本体视图中的元关系的语义含义不同，因此有助于为每个视图提供单独的处理方式，而不是将它们组合为单个表示模式，从而提高了性能。文中提供了两种嵌入模型。</p>
+<ul>
+<li>Default Intra-view Model——默认内部视图模型</li>
+</ul>
+<p>即通过现有的知识图谱表示模型来进行学习，包括TransE,DistMult,HolE，其得分函数如(4)</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+f_%7B%5Ctext+%7BTransE+%7D%7D%28%5Cmathbf%7Bh%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%29+%26%3D-%7C%7C+%5Cmathbf%7Bh%7D%2B%5Cmathbf%7Br%7D-%5Cmathbf%7Bt%7D+%5C%7C_%7B2%7D+%5C%5C+f_%7B%5Ctext+%7BMult+%7D%7D%28%5Cmathbf%7Bh%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%29+%26%3D%28%5Cmathbf%7Bh%7D+%5Ccirc+%5Cmathbf%7Bt%7D%29+%5Ccdot+%5Cmathbf%7Br%7D+%5C%5C+f_%7B%5Ctext+%7BHolE+%7D%7D%28%5Cmathbf%7Bh%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%29+%26%3D%28%5Cmathbf%7Bh%7D+%5Cstar+%5Cmathbf%7Bt%7D%29+%5Ccdot+%5Cmathbf%7Br%7D+%5Cend%7Baligned%7D" alt="[公式]"> (4)</p>
+<p>优化目标即最小化所有三元组（包括实例间三元组和概念间三元组）的loss：</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7BG%7D%3D%5Cfrac%7B1%7D%7B%7C%5Cmathcal%7BG%7D%7C%7D+%26+%5Csum_%7B%28h%2C+r%2C+t%29+%5Cin+%5Cmathcal%7BG%7D%5Cwedge%5Cleft%28h%5E%7B%5Cprime%7D%2C+r%2C+t%5E%7B%5Cprime%7D%5Cright%29+%5Cnotin+%5Cmathcal%7BG%7D%7D%5Cleft%5B%5Cgamma%5E%7B%5Cmathcal%7BG%7D%7D%2Bf%5Cleft%28%5Cmathbf%7Bh%7D%5E%7B%5Cprime%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%5E%7B%5Cprime%7D%5Cright%29-f%28%5Cmathbf%7Bh%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%29%5Cright%5D_%7B%2B%7D+%5C%5C+%26++%5Cend%7Baligned%7D" alt="[公式]"> (5)</p>
+<p>其中 <img src="https://www.zhihu.com/equation?tex=%EF%BC%88%5Cmathbf%7Bh%7D%5E%7B%5Cprime%7D%2C+%5Cmathbf%7Br%7D%2C+%5Cmathbf%7Bt%7D%5E%7B%5Cprime%7D%EF%BC%89" alt="[公式]"> 表示表示头尾被替换，不存在于图谱中的三元组。这个损失天然就适用于两个不同的视图，我们用两个视图的损失函数构建一个<strong>联合损失函数</strong>：</p>
+<p><img src="https://www.zhihu.com/equation?tex=J_%7B%5Ctext+%7BIntra+%7D%7D%3DJ_%7B%5Ctext+%7BIntra+%7D%7D%5E%7BG_%7BI%7D%7D%2B%5Calpha_%7B1%7D+%5Ccdot+J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7BG_%7BO%7D%7D" alt="[公式]"> （6）</p>
+<p>式中的α1用来调节权重</p>
+<ul>
+<li>Hierarchy-Aware Intra-view Model for the Ontology. ——本体的层次感知视图内模型</li>
+</ul>
+<p>默认内部视图模型并不能对本体视图的概念间上下位关系进行很好的建模。作者提出了层次感知视图内模型，这一模型进一步区分了<strong>形成本体层级结构</strong>的元关系（如”subclass_of”和”is_a”)和视图内模型中<strong>常规</strong>的语义关系（如”related_to”)。</p>
+<p>这里设计方法类似CT，即给定一个具备subclass_of关系的概念对 <img src="https://www.zhihu.com/equation?tex=%28c_l%2Cc_t%29" alt="[公式]"> ，认为存在非线形变换可以将<strong>粗粒度</strong>的概念（上位概念）映射为<strong>细粒度</strong>的概念（下位概念），其公式可以表示：</p>
+<p><img src="https://www.zhihu.com/equation?tex=g_%7B%5Cmathrm%7BHA%7D%7D%5Cleft%28%5Cmathrm%7Bc%7D_%7Bh%7D%5Cright%29%3D%5Csigma%5Cleft%28%5Cmathrm%7BW%7D_%7B%5Cmathrm%7BHA%7D%7D+%5Ccdot+%5Cmathrm%7Bc%7D_%7Bl%7D%2B%5Cmathrm%7Bb%7D_%7B%5Cmathrm%7BHA%7D%7D%5Cright%29" alt="[公式]"> （7）</p>
+<p>式中的<img src="https://www.zhihu.com/equation?tex=%7BW%7D_%7B%5Cmathrm%7BHA%7D%7D+%E3%80%81%7Bb%7D_%7B%5Cmathrm%7BHA%7D%7D+" alt="[公式]">都是训练的参数。由此定义的loss为</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cbegin%7Baligned%7D+J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7B%5Cmathrm%7BHA%7D%7D%3D%5Cfrac%7B1%7D%7B%7C%5Cmathcal%7BT%7D%7C%7D+%26+%5Csum_%7B%5Cleft%28c_%7Bl%7D%2C+c_%7Bh%7D%5Cright%29+%5Cin+%5Cmathcal%7BT%7D%5Cwedge%5Cleft%28c_%7Bl%7D%2C+c_%7Bh%7D%5E%7B%5Cprime%7D%5Cright%29+%5Cnotin+%5Cmathcal%7BT%7D%7D%5Cleft%5B%5Cgamma%5E%7B%5Cmathrm%7BHA%7D%7D%2B%5Cleft%5C%7C%5Cmathbf%7Bc%7D_%7Bh%7D-g%5Cleft%28%5Cmathbf%7Bc%7D_%7Bl%7D%5Cright%29%5Cright%5C%7C_%7B2%7D-%5Cleft%5C%7C%5Cmathbf%7Bc%7D_%7B%5Cmathbf%7Bh%7D%7D%5E%7B%5Cprime%7D-g%5Cleft%28%5Cmathbf%7Bc%7D_%7B%5Cmathbf%7Bl%7D%7D%5Cright%29%5Cright%5C%7C_%7B2%7D%5Cright%5D_%7B%2B%7D+%5C%5C+%26++%5Cend%7Baligned%7D" alt="[公式]"> （8）</p>
+<p>再列出联合loss</p>
+<p><img src="https://www.zhihu.com/equation?tex=J_%7B%5Ctext+%7BIntra+%7D%7D%3DJ_%7B%5Ctext+%7BIntra+%7D%7D%5E%7B%5Cmathcal%7BG%7D_%7BI%7D%7D%2B%5Calpha_%7B1%7D+%5Ccdot+J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7B%5Cmathcal%7BG%7D+%5Ccirc%5Cbackslash+%5Cmathcal%7BT%7D%7D+%2B%5Calpha_%7B2%7D+%5Ccdot+J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7B%5Cmathrm%7BHA%7D%7D" alt="[公式]"> （9）</p>
+<p>式中 <img src="https://www.zhihu.com/equation?tex=J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7BG+%5Ccirc%5Cbackslash+%5Cmathcal%7BT%7D%7D" alt="[公式]"> 表示使用<strong>默认内部视图模型</strong>再常规语义关系三元组上训练所得到的损失。<img src="https://www.zhihu.com/equation?tex=J_%7B%5Ctext+%7BIntra+%7D%7D%5E%7B%5Cmathrm%7BHA%7D%7D" alt="[公式]"> 表示在具有本体关系<strong>层次结构的元关系</strong>的三元组上进行了明确的训练之后得到的损失，这与等式6有很大不同。</p>
+<h2 id="联合训练"><a href="#联合训练" class="headerlink" title="联合训练"></a>联合训练</h2><p><img src="https://www.zhihu.com/equation?tex=J%3DJ_%7B%5Ctext+%7BIntra+%7D%7D%2B%5Comega+%5Ccdot+J_%7B%5Ctext+%7BCross+%7D%7D" alt="[公式]"> （10）</p>
+<p>式中ω是一个大于零的正参数，用来平衡两个J。</p>
+<p>文中还讲到了他们的训练手法</p>
+<blockquote>
+<p>Instead of directly updating J, our implementation optimizes JIntra GI , JIntra GO and JCross alternately. In detail, we optimize θnew ← θold - η∇JIntra and θnew ← θold - (ωη)∇JCross in successive steps within one epoch.η is the learning rate, and ω differentiates between the learning rates for intra-view and cross-view losses.</p>
+</blockquote>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><ul>
+<li>数据集</li>
+</ul>
+<p>数据集方面，由于现有方法大多只关注对一个视图的知识建模，缺少融合两个视图特点的公开评测数据。所以作者从YAGO和DBpedia构建了两个更符合真实知识图谱结构的数据集YAGO26K-906和DB111K-174。数据集的相关信息统计如下<a href="#ref_2">[2]</a>：</p>
+<p><img src="https://pic4.zhimg.com/v2-5c933cf75d82dce678c5df423c07ec23_b.jpg" alt=""></p>
+<p>表1 数据集概览</p>
+<p>主要完成了<strong>知识图谱补全</strong>和<strong>实体分类</strong>的两个任务，都显示了该模型有不错的性能。这里篇幅有限，就不给人家打广告了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="#ref_1_0">^</a>仿射变换 <a href="https://zh.wikipedia.org/wiki/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2</a></li>
+<li><a href="#ref_2_0">^</a>机器之心 <a href="https://www.jiqizhixin.com/articles/2019-08-12-3" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2019-08-12-3</a></li>
+</ol>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Hank</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://cliccker.top/post/ced9.html">https://cliccker.top/post/ced9.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Hank</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/KB/">
+                                    <span class="chip bg-color">KB</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B5%8C%E5%85%A5%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">嵌入学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">谢谢你请我吃雪糕</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gUhPHwKjxaFP16SrEdQLUlzL-gzGzoHsz',
+        appKey: 'CwE3N33I90ix7ccLRjsFnCo2',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '说点什么吧'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/post/37a5.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="关于如何申请JetBrain的学生许可证">
+                        
+                        <span class="card-title">关于如何申请JetBrain的学生许可证</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pycharm是一个强大专业的Python编辑器，分为专业版和社区版，相比于专业版，社区版阉割了很多功能，比如Django。身边的同学选择用别人分享的激活码来激活专业版，当然这样既不能稳定保持激活，也不合适！
+前些天我发现JetBrain官
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E5%B7%A7/" class="post-category">
+                                    技巧
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JetBrain/">
+                        <span class="chip bg-color">JetBrain</span>
+                    </a>
+                    
+                    <a href="/tags/Pycharm/">
+                        <span class="chip bg-color">Pycharm</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/post/3515.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="用PyQT写小工具">
+                        
+                        <span class="card-title">用PyQT写小工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用PyQT5时遇到的一些坑
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hank
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/pyqt5/">
+                        <span class="chip bg-color">pyqt5</span>
+                    </a>
+                    
+                    <a href="/tags/QTdesigner/">
+                        <span class="chip bg-color">QTdesigner</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('1'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="5117168986"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Hank</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">20.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "7";
+                    var startDate = "15";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已缓慢爬行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已缓慢爬行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Cliccker" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:megamhc@gamil.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=760848310" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 760848310" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/JIANDABIAN" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/JIANDABIAN" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/voyage_meng" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/voyage_meng" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?82f216654f4a440fecc94c125ca3b2be";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.8'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+<div id="weather-v2-plugin-simple"></div>
+<script>
+    WIDGET = {
+        CONFIG: {
+            "modules": "01234",
+            "background": 5,
+            "tmpColor": "4A4A4A",
+            "tmpSize": 16,
+            "cityColor": "4A4A4A",
+            "citySize": 16,
+            "aqiSize": 16,
+            "weatherIconSize": 24,
+            "alertIconSize": 18,
+            "padding": "10px 10px 10px 10px",
+            "shadow": "1",
+            "language": "auto",
+            "borderRadius": 5,
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "9MslpRZgtH"
+        }
+    }
+</script>
+<script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+</body>
+
+</html>
